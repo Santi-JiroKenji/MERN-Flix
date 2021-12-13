@@ -1,0 +1,113 @@
+@import "../../app.scss";
+
+.navbar {
+  width: 100%;
+  color: white;
+  font-size: 14px;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  background: linear-gradient(to top, transparent 0%, rgb(0, 0, 0, 0.3) 50%);
+
+  &.scrolled {
+    background-color: var(--main-color);
+  }
+
+  .container {
+    padding: 0px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+
+    .left {
+      display: flex;
+      align-items: center;
+
+      img {
+        height: 25px;
+        margin-right: 40px;
+
+        @include mobile {
+          display: none;
+        }
+      }
+
+      span {
+        margin-right: 20px;
+        cursor: pointer;
+
+        @include mobile {
+          font-size: 13px;
+        }
+
+        @include tablet {
+          // display: none;
+        }
+
+        &.navbarMainLinks {
+          @include tablet {
+            display: block;
+          }
+        }
+      }
+    }
+
+    .right {
+      display: flex;
+      align-items: center;
+
+      .icon {
+        margin: 0px 10px;
+        cursor: pointer;
+
+        @include mobile {
+          width: 18px;
+          height: 18px;
+        }
+      }
+
+      img {
+        width: 30px;
+        height: 30px;
+        border-radius: 5px;
+        border: #eeeeee solid 1px;
+        object-fit: cover;
+        cursor: pointer;
+
+        @include mobile {
+          width: 20px;
+          height: 20px;
+        }
+      }
+
+      .profile {
+        .options {
+          display: none;
+          background-color: var(--main-color);
+          border-radius: 5px;
+
+          @include mobile {
+            margin-left: -2rem;
+          }
+        }
+
+        .link-logout, .link-setting {
+          text-decoration: none;
+          // color: var(--mernflix-color);
+          color: white;
+          padding: 0.5rem;
+          cursor: pointer;
+        }
+
+        &:hover {
+          .options {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+          }
+        }
+      }
+    }
+  }
+}
