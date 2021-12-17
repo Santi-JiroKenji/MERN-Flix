@@ -4,7 +4,7 @@ command run "admin folder"
   yarn start
   
 command run "api folder"
-  yarn start-server
+  yarn server-start
   
 command run "client folder"
   yarn start
