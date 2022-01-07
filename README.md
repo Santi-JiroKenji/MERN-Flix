@@ -1,4 +1,4 @@
 # MERN-Flix
 
-command run "admin folder"
+command run
   npm run dev
