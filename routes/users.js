@@ -5,21 +5,24 @@ const verify = require("../verifyToken");
 
 // UPDATE
 router.put("/:id", verify, async (req, res) => {
-  if(req.user.id === req.params.id || req.user.Admin){
-    if(req.body.password){
+  if (req.user.id === req.params.id || req.user.Admin) {
+    if (req.body.password) {
       req.body.password = CryptoJS.AES.encrypt(
-      req.body.password,
-      process.env.SECRET_KEY
+        req.body.password,
+        process.env.SECRET_KEY
       ).toString();
     }
 
     try {
-      const updatedUser = await User.findByIdAndUpdate(req.params.id, {
-        $set: req.body,
-      },
-      {
-        new: true,
-      });
+      const updatedUser = await User.findByIdAndUpdate(
+        req.params.id,
+        {
+          $set: req.body,
+        },
+        {
+          new: true,
+        }
+      );
       res.status(200).json(updatedUser);
     } catch (err) {
       res.status(500).json(err);
@@ -27,7 +30,6 @@ router.put("/:id", verify, async (req, res) => {
   } else {
     res.status(400).json("You can update only your account!");
   }
-
 });
 
 //DELETE
@@ -92,7 +94,7 @@ router.get("/stats", async (req, res) => {
         },
       },
     ]);
-    res.status(200).json(data)
+    res.status(200).json(data);
   } catch (err) {
     res.status(500).json(err);
   }

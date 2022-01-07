@@ -3,7 +3,7 @@ import { useContext, useState } from "react";
 import "./navbar.scss";
 import { AuthContext } from "../../authContext/AuthContext";
 import { logout } from "../../authContext/AuthActions";
-import mernFlixLogo from "../../assets/images/mernflix.png";
+import mernFlixLogo from "../../assets/images/jiromernflix.png";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {

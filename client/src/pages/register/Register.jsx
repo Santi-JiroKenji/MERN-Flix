@@ -3,7 +3,7 @@ import { useRef } from "react";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import "./register.scss";
-import mernFlixLogo from "../../assets/images/mernflix.png";
+import mernFlixLogo from "../../assets/images/jiromernflix.png";
 import { Link } from "react-router-dom";
 
 export default function Register() {
@@ -24,7 +24,7 @@ export default function Register() {
     setPassword(passwordRef.current.value);
     setUsername(usernameRef.current.value);
     try {
-      await axios.post("auth/register", { email,username, password });
+      await axios.post("/api/auth/register", { email,username, password });
       history.push("/login");
     } catch (err) {}
   };
