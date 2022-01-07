@@ -1,4 +1,4 @@
 # MERN-Flix
 
-command run
+command run >>
   npm run dev
